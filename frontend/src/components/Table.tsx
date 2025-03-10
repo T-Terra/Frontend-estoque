@@ -3,7 +3,7 @@ type Product = {
     name: string;
     code: string;
     description: string;
-    quantity: number;
+    amount: number;
 }
 
 type ListProducts = {
@@ -30,7 +30,7 @@ function TableList(props: ListProducts) {
                     <td className="p-3">{product.name}</td>
                     <td className="p-3">{product.code}</td>
                     <td className="p-3">{product.description}</td>
-                    <td className="p-3">{product.quantity}</td>
+                    <td className="p-3">{product.amount}</td>
                   </tr>
                 ))}
             </tbody>
