@@ -1,18 +1,25 @@
+import { useNavigate } from "react-router"
 import axios from "axios"
 import Form from "../components/Form"
 
 function Login() {
     const ApiUrl = import.meta.env.VITE_API_URL
+    const navigate = useNavigate()
 
     async function SetLogin(username: string, password: string) {
         try {
             const response = await axios.post(`${ApiUrl}login/`, {
                 "username": username,
                 "password": password
-                }, { withCredentials: true })
+            }, { withCredentials: true })
+
+            if (response.status == 200) {
+                navigate("/list")
+            } 
+
             return response
-        } catch (error) {
-          console.error('Erro ao fazer login', error)
+        } catch {
+            alert("Credenciais Inválidas")
         }
     }
 
