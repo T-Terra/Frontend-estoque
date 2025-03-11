@@ -1,0 +1,12 @@
+import { Navigate, Outlet } from "react-router";
+import { useAuth } from "../hooks/useAuth";
+
+export default function ProtectedRoute() {
+    const isAuthenticated = useAuth()
+
+    if (isAuthenticated === null) {
+        return <p className="text-center text-gray-700">Carregando...</p>; // Exibe um loading enquanto verifica
+    }
+
+    return (isAuthenticated ? <Outlet /> : <Navigate to='/' replace />)
+}
