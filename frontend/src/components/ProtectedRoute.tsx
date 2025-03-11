@@ -10,9 +10,9 @@ export default function ProtectedRoute() {
     }
 
     return isAuthenticated ? (
-        <>
+        <div className="w-full overflow-x-hidden">
             <NavBar />
             <Outlet />
-        </>
+        </div>
     ) : <Navigate to='/' replace />
 }
