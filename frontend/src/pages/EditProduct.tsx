@@ -10,10 +10,14 @@ function EditProduct() {
 
   const [editedProduct, setEditedProduct] = useState(product);
 
+  // Função que Manupula o formulário pegando o name e value do input
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedProduct((prev) => ({ ...prev, [name]: value }));
   };
+
+  // Função que envia o produto editado para o backend
 
   const handleSave = async () => {
     const response = await axios.put(`${ApiUrl}pecas/${editedProduct.id}/`, {
@@ -25,12 +29,12 @@ function EditProduct() {
         withCredentials: true
     })
 
-    navigate("/list"); // Redireciona após salvar
+    navigate("/list");
     return response
   };
 
   if (!product) {
-    return <p>Produto não encontrado.</p>;
+    return <div className="h-screen flex justify-center items-center bg-gray-400"><p className="font-bold size-80 text-2xl text-gray-900">Produto não encontrado.</p></div>
   }
 
   return (

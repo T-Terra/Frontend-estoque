@@ -1,4 +1,4 @@
-import { Edit } from "lucide-react";
+import { Edit, Trash2 } from "lucide-react";
 
 type Product = {
     id: number;
@@ -9,10 +9,10 @@ type Product = {
 }
 
 type ListProducts = {
-    product: Product[]
+  product: Product[]
 }
 
-function TableList({ product, onEdit }: ListProducts) {
+function TableList({ product, onEdit, onDelete }: ListProducts) {
     return (
       <div className="h-screen w-screen bg-gray-400 flex justify-center">
         <div className="w-[800px]">
@@ -33,12 +33,20 @@ function TableList({ product, onEdit }: ListProducts) {
                     <td className="p-3">{product.code}</td>
                     <td className="p-3">{product.description}</td>
                     <td className="p-3">{product.amount}</td>
-                    <td className="p-3">
+                    <td>
                       <button
                         onClick={() => onEdit(product, product.id)}
-                        className="text-gray-700 hover:text-gray-900"
+                        className="hover:text-blue-400 p-4"
                       >
                         <Edit size={20} />
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                          onClick={() => onDelete(product.id)}
+                          className="hover:text-red-400 p-4"
+                        >
+                          <Trash2 size={20} />
                       </button>
                     </td>
                   </tr>

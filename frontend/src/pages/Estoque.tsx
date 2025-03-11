@@ -24,12 +24,26 @@ function Estoque() {
     GetProducts()
   }, [])
 
-  const handlerEdit = (Product, id) => {
-    navigate(`/edit/${id}`, { state: Product })
+  const handlerEdit = async (Product, id) => {
+    await navigate(`/edit/${id}`, { state: Product })
+  }
+
+  const handlerDelete = async (id) => {
+    try {
+      const response = await axios.delete(`${ApiUrl}pecas/${id}/`, {
+        withCredentials: true
+      })
+
+      setProducts(products.filter((idFilter) => (idFilter.id !== id)))
+
+      return response.status
+    } catch (error) {
+      console.error('Erro ao apagar produto', error)
+    }
   }
 
   return (
-    <TableList product={products} onEdit={handlerEdit}/>
+    <TableList product={products} onEdit={handlerEdit} onDelete={handlerDelete} />
   )
 }
   
