@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router";
 import { useAuth } from "../hooks/useAuth";
+import NavBar from "./NavBar";
 
 export default function ProtectedRoute() {
     const isAuthenticated = useAuth()
@@ -8,5 +9,10 @@ export default function ProtectedRoute() {
         return <p className="text-center text-gray-700">Carregando...</p>; // Exibe um loading enquanto verifica
     }
 
-    return (isAuthenticated ? <Outlet /> : <Navigate to='/' replace />)
+    return isAuthenticated ? (
+        <>
+            <NavBar />
+            <Outlet />
+        </>
+    ) : <Navigate to='/' replace />
 }

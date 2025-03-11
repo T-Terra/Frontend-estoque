@@ -14,7 +14,7 @@ function TableList(props: ListProducts) {
     return (
         <div className="h-screen w-screen bg-gray-400 flex justify-center">
         <div className="w-[800px]">
-          <h1 className="text-3xl text-gray-50 font-bold text-center m-3">Listagem de estoque!</h1>
+          <h1 className="text-3xl text-gray-100 font-bold text-center m-3">Listagem de Estoque</h1>
           <table className="w-[800px] border-gray-400 md:border-separate shadow-2xs">
             <thead>
               <tr>
