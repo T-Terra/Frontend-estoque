@@ -1,4 +1,5 @@
 import { Link } from "react-router"
+import Logout from "../pages/Logout"
 
 const NavBar = () => {
     return (
@@ -29,11 +30,7 @@ const NavBar = () => {
                     </ul>
 
                     {/* Botão de Logout */}
-                    <button 
-                        className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700"
-                    >
-                        Logout
-                    </button>
+                    <Logout />
                 </div>
             </nav>
         </div>

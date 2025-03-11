@@ -3,9 +3,10 @@ import axios from "axios";
 
 export function useAuth() {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
-    const ApiUrl = import.meta.env.VITE_API_URL
 
     useEffect(() => {
+        const ApiUrl = import.meta.env.VITE_API_URL
+        
         const checkAuth = async () => {
             try {
                 const response = await axios.get(`${ApiUrl}authcheck/`, {

@@ -6,10 +6,11 @@ import axios from 'axios'
 function Estoque() {
 
   const [products, setProducts] = useState([])
-  const ApiUrl = import.meta.env.VITE_API_URL
   const navigate = useNavigate()
 
   useEffect(() => {
+    const ApiUrl = import.meta.env.VITE_API_URL
+
     async function GetProducts() {
       try {
         const response = await axios.get(`${ApiUrl}pecas/`, {
