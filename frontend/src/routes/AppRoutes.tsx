@@ -3,6 +3,7 @@ import Estoque from '../pages/Estoque.tsx'
 import Login from "../pages/Login.tsx";
 import AddEstoque from '../pages/AddEstoque.tsx'
 import ProtectedRoute from "../components/ProtectedRoute.tsx";
+import EditProduct from "../pages/EditProduct.tsx"
 
 const AppRoutes = () => (
     <BrowserRouter>
@@ -11,6 +12,7 @@ const AppRoutes = () => (
             <Route element={<ProtectedRoute />}>
                 <Route path='/list' element={<Estoque />} />
                 <Route path='/add' element={<AddEstoque />} />
+                <Route path='/edit/:id' element={<EditProduct />} />
             </Route>
         </Routes>
     </BrowserRouter>

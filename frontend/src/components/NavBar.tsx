@@ -26,22 +26,6 @@ const NavBar = () => {
                                 Adicionar Produto
                             </Link>
                         </li>
-                        <li>
-                            <Link 
-                                to="#" 
-                                className="text-gray-700 hover:text-gray-900 font-semibold"
-                            >
-                                Editar Produto
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                to="#" 
-                                className="text-gray-700 hover:text-gray-900 font-semibold"
-                            >
-                                Excluir Produto
-                            </Link>
-                        </li>
                     </ul>
 
                     {/* Botão de Logout */}

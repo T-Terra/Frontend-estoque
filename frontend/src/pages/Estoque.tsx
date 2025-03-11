@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import TableList from '../components/Table'
+import { useNavigate } from "react-router"
 import axios from 'axios'
 
 function Estoque() {
 
   const [products, setProducts] = useState([])
   const ApiUrl = import.meta.env.VITE_API_URL
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function GetProducts() {
@@ -22,8 +24,12 @@ function Estoque() {
     GetProducts()
   }, [])
 
+  const handlerEdit = (Product, id) => {
+    navigate(`/edit/${id}`, { state: Product })
+  }
+
   return (
-    <TableList product={products}/>
+    <TableList product={products} onEdit={handlerEdit}/>
   )
 }
   
