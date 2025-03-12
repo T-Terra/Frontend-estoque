@@ -1,6 +1,19 @@
 import ProductView from '../components/ProductViewAdd.tsx'
 
-function PartForm({ onSubmit, resProducts }) {
+interface Product {
+    id: number;
+    name: string;
+    code: string;
+    description: string;
+    amount: number;
+}
+
+type ListTypes= {
+    onSubmit: (formData: FormData) => void
+    resProducts: Product
+}
+
+function PartForm({ onSubmit, resProducts } : ListTypes) {
     return (
         <div className="h-screen w-screen bg-gray-400 flex justify-center">
             <div className="w-[500px]">

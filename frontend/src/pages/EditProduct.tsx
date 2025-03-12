@@ -2,6 +2,14 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import axios from "axios";
 
+interface Product {
+  id: number;
+  name: string;
+  code: string;
+  description: string;
+  amount: number;
+}
+
 function EditProduct() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -12,9 +20,9 @@ function EditProduct() {
 
   // Função que Manupula o formulário pegando o name e value do input
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setEditedProduct((prev) => ({ ...prev, [name]: value }));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target as HTMLInputElement | HTMLTextAreaElement;
+    setEditedProduct((prev: Product) => ({ ...prev, [name]: value }));
   };
 
   // Função que envia o produto editado para o backend

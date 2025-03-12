@@ -1,4 +1,8 @@
-function Form({ AuthFunc }) {
+type Auth = {
+    AuthFunc: (formData: FormData) => void
+}
+
+function Form({ AuthFunc }: Auth) {
     return (
         <div className="h-screen w-screen bg-gray-400 flex justify-center">
             <div className="w-[500px]">

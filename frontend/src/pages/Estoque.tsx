@@ -3,6 +3,15 @@ import TableList from '../components/Table'
 import { useNavigate } from "react-router"
 import axios from 'axios'
 
+
+type Product = {
+  id: number;
+  name: string;
+  code: string;
+  description: string;
+  amount: number;
+}
+
 function Estoque() {
 
   const [products, setProducts] = useState([])
@@ -25,17 +34,17 @@ function Estoque() {
     GetProducts()
   }, [])
 
-  const handlerEdit = async (Product, id) => {
-    await navigate(`/edit/${id}`, { state: Product })
+  const handlerEdit = async (Prod: Product, id: number) => {
+    await navigate(`/edit/${id}`, { state: Prod })
   }
 
-  const handlerDelete = async (id) => {
+  const handlerDelete = async (id: number) => {
     try {
       const response = await axios.delete(`${ApiUrl}pecas/${id}/`, {
         withCredentials: true
       })
 
-      setProducts(products.filter((idFilter) => (idFilter.id !== id)))
+      setProducts(products.filter((idFilter: Product) => (idFilter.id !== id)))
 
       return response.status
     } catch (error) {

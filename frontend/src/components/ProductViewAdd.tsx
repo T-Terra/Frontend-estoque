@@ -1,5 +1,17 @@
-function ProductView({ resProd }) { 
-    if (resProd.length === 0) return null
+interface Product {
+    id: number;
+    name: string;
+    code: string;
+    description: string;
+    amount: number;
+}
+
+type ListProducts = {
+    resProd: Product
+}
+
+function ProductView({ resProd }: ListProducts) { 
+    if (resProd === undefined) return null
 
     return (
         <div className="w-[500px] max-w-sm mx-auto bg-white p-6 rounded-lg shadow-lg mt-6">

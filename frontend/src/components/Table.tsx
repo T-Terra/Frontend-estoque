@@ -7,10 +7,15 @@ type Product = {
     description: string;
     amount: number;
 }
+type OnEdit = (productList: Product, id: number) => void;
+type OnDelete = (id: number) => void;
 
 type ListProducts = {
   product: Product[]
+  onEdit: OnEdit
+  onDelete: OnDelete
 }
+
 
 function TableList({ product, onEdit, onDelete }: ListProducts) {
     return (
@@ -27,15 +32,15 @@ function TableList({ product, onEdit, onDelete }: ListProducts) {
               </tr>
             </thead>
             <tbody>
-              {product.map((product) => (
-                  <tr key={product.id} className="border-b bg-gray-300 text-gray-800 hover:bg-gray-500 hover:text-gray-100">
-                    <td className="p-3">{product.name}</td>
-                    <td className="p-3">{product.code}</td>
-                    <td className="p-3">{product.description}</td>
-                    <td className="p-3">{product.amount}</td>
+              {product.map((prod) => (
+                  <tr key={prod.id} className="border-b bg-gray-300 text-gray-800 hover:bg-gray-500 hover:text-gray-100">
+                    <td className="p-3">{prod.name}</td>
+                    <td className="p-3">{prod.code}</td>
+                    <td className="p-3">{prod.description}</td>
+                    <td className="p-3">{prod.amount}</td>
                     <td>
                       <button
-                        onClick={() => onEdit(product, product.id)}
+                        onClick={() => onEdit(prod, prod.id)}
                         className="hover:text-blue-400 p-4"
                       >
                         <Edit size={20} />
@@ -43,7 +48,7 @@ function TableList({ product, onEdit, onDelete }: ListProducts) {
                     </td>
                     <td>
                       <button
-                          onClick={() => onDelete(product.id)}
+                          onClick={() => onDelete(prod.id)}
                           className="hover:text-red-400 p-4"
                         >
                           <Trash2 size={20} />

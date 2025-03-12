@@ -1,4 +1,10 @@
-const ButtonLogout = ({ onLogout }) => {
+import { AxiosResponse } from "axios"
+
+type Logout = {
+    onLogout: () => Promise<AxiosResponse>
+}
+
+const ButtonLogout = ({ onLogout }: Logout) => {
     return (
         <button 
             onClick={onLogout}
