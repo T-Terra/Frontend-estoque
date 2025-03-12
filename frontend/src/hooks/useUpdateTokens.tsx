@@ -9,11 +9,10 @@ export function useUpdateTokens() {
 
         const checkUpdate = async () => {
             try {
-                const response = await axios.get(`${ApiUrl}refreshtoken/`, {
+                await axios.get(`${ApiUrl}refreshtoken/`, {
                     withCredentials: true
                 })
-        
-                console.log(response.data)
+                
             } catch (error) {
                 console.error(`Erro: ${error}`)
             }
