@@ -19,6 +19,11 @@ export function useUpdateTokens() {
             }
         }
 
-        checkUpdate()
+        const interval = setInterval(() => {
+            checkUpdate()
+        }, 60 * 3000)
+
+        return () => clearInterval(interval)
+
     }, [])
 }

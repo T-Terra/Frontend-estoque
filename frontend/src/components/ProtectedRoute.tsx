@@ -5,7 +5,9 @@ import NavBar from "./NavBar";
 
 export default function ProtectedRoute() {
     const isAuthenticated = useAuth()
-    useUpdateTokens() // remover depois 
+    
+    useUpdateTokens()
+    
     if (isAuthenticated === null) {
         return <p className="text-center text-gray-700">Carregando...</p>; // Exibe um loading enquanto verifica
     }
