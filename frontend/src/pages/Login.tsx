@@ -1,10 +1,19 @@
 import { useNavigate } from "react-router"
+import { useEffect } from "react"
 import axios from "axios"
 import Form from "../components/Form"
+import { useAuth } from "../hooks/useAuth";
 
 function Login() {
     const ApiUrl = import.meta.env.VITE_API_URL
     const navigate = useNavigate()
+    const authCheck = useAuth()
+    
+    useEffect(() => {
+        if(authCheck == true) {
+            navigate('/list')
+        }
+    }, [authCheck, navigate])
 
     async function SetLogin(username: string, password: string) {
         try {
