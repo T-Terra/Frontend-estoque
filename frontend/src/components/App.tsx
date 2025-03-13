@@ -1,8 +1,11 @@
 import AppRoutes from "../routes/AppRoutes"
+import { AppContexts } from "../contexts"
 
 function App() {
   return (
-    <AppRoutes />
+    <AppContexts>
+      <AppRoutes />
+    </AppContexts>
   )
 }
 
