@@ -6,6 +6,7 @@ interface Product {
     code: string;
     description: string;
     amount: number;
+    isVisible: boolean
 }
 
 type ListTypes= {
@@ -16,12 +17,12 @@ type ListTypes= {
 function PartForm({ onSubmit, resProducts } : ListTypes) {
     return (
         <div className="h-screen w-screen bg-gray-400 flex justify-center">
-            <div className="w-[500px]">
+            <div className="w-[350px] sm:w-[500px]">
                 <form 
                     action={onSubmit} 
                     className="max-w-sm mx-auto bg-white p-6 rounded-lg shadow-lg mt-16"
                 >
-                    <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+                    <h2 className="text-[18px] sm:text-2xl font-bold text-center text-gray-800 mb-6">
                         Cadastro de Peça
                     </h2>
                     
@@ -84,7 +85,7 @@ function PartForm({ onSubmit, resProducts } : ListTypes) {
                     <div className="flex justify-center">
                         <button 
                             type="submit" 
-                            className="w-full py-3 px-4 bg-gray-800 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                            className="text-[15px] w-full py-3 px-4 bg-gray-800 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
                         >
                             Cadastrar Peça
                         </button>

@@ -8,6 +8,7 @@ interface Product {
   code: string;
   description: string;
   amount: number;
+  isVisible: boolean
 }
 
 function AddEstoque() {
@@ -17,7 +18,8 @@ function AddEstoque() {
     "name": "",
     "code": "",
     "description": "",
-    "amount": 0
+    "amount": 0,
+    "isVisible": false
   })
   const ApiUrl = import.meta.env.VITE_API_URL
 

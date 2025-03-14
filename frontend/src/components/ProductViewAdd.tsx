@@ -4,6 +4,7 @@ interface Product {
     code: string;
     description: string;
     amount: number;
+    isVisible: boolean;
 }
 
 type ListProducts = {
@@ -11,7 +12,7 @@ type ListProducts = {
 }
 
 function ProductView({ resProd }: ListProducts) { 
-    if (resProd === undefined) return null
+    if (resProd["isVisible"] === false) return null
 
     return (
         <div className="w-[500px] max-w-sm mx-auto bg-white p-6 rounded-lg shadow-lg mt-6">

@@ -53,6 +53,7 @@ const NavBar = () => {
                             <Link 
                                 to="/list" 
                                 className="text-gray-700 hover:text-gray-900 font-semibold"
+                                onClick={() => setIsVisible((prev) => !prev)}
                             >
                                 <NavMobileItem>
                                     Listar Estoque
@@ -61,6 +62,7 @@ const NavBar = () => {
                             <Link 
                                 to="/add" 
                                 className="text-gray-700 hover:text-gray-900 font-semibold"
+                                onClick={() => setIsVisible((prev) => !prev)}
                             >
                                 <NavMobileItem>
                                     Adicionar Produto
