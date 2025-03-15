@@ -40,7 +40,7 @@ function Estoque() {
 
   const handlerDelete = async (id: number) => {
     try {
-      const response = await axios.delete(`${ApiUrl}pecas/${id}/`, {
+      const response = await axios.delete(`${ApiUrl}pecas/delete/${id}/`, {
         withCredentials: true
       })
 
