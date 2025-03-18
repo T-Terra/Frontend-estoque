@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
+# Front - Sistema de Estoque de Peças
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto frontend para um sistema de cadastro de peças automotivas, incluindo funcionalidades como tela de login, listagem e adição de novas peças.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **ReactJS** - Biblioteca para construção da interface do usuário.
+- **TypeScript** - Superset do JavaScript que adiciona tipagem estática.
+- **TailwindCSS** - Framework CSS para estilização rápida e responsiva.
+- **Node.js** - Ambiente de execução.
+- **axios** - Para requisições ao backend.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Autenticação** - Tela de login para acesso seguro.
+- **Listagem de Peças** - Visualização das peças cadastradas.
+- **Cadastro de Peças** - Adição de novas peças ao sistema.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Como Rodar o Projeto
+
+### Pré-requisitos
+
+Certifique-se de ter instalado:
+- [Node.js](https://nodejs.org/) **v20.17.0**
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+
+### Instalação e Execução
+
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/T-Terra/Frontend-estoque.git
+   cd Frontend-estoque cd frontend
+   ```
+2. Instale as dependências:
+   ```sh
+   npm install
+   # ou
+   yarn install
+   ```
+3. Inicie o projeto:
+   ```sh
+   npm run dev
+   # ou
+   yarn dev
+   ```
+4. O frontend estará disponível em `http://localhost:5173` (caso utilize Vite).
+
+## Estrutura do Projeto
+
+```
+frontend/
+│── src/
+│   ├── components/  # Componentes reutilizáveis
+│   ├── pages/       # Páginas principais
+│   ├── contexts/    # Contextos globais
+│   ├── hooks/       # Hooks personalizados
+│   ├── assets/      # Arquivos estáticos
+│   ├── interfaces/  # Interfaces com a tipagem
+|   ├── routes/      # Rotas do app
+│   └── main.tsx     # Ponto de entrada do projeto
+│── public/          # Arquivos estáticos
+│── package.json     # Configuração do projeto
+│── tsconfig.json    # Configuração do TypeScript
+│── README.md        # Documentação
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+O backend deste projeto foi desenvolvido em Django (Python) e disponibiliza endpoints para autenticação e gerenciamento das peças. Certifique-se de configurar corretamente a URL da API no frontend para consumir os serviços corretamente.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Aplicação
+
+Você pode acessar a aplicação pelo link abaixo e caso tenha interesse em testar a aplicação abra uma Issue no Github para solicitar o acesso.
+
+- [EstoqueApp](https://frontend-estoque-delta.vercel.app/)
+
+
+## Licença
+
+Este projeto está sob a [MIT License](LICENSE).
+
