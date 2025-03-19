@@ -9,6 +9,7 @@ Este é um projeto frontend para um sistema de cadastro de peças automotivas, i
 - **TailwindCSS** - Framework CSS para estilização rápida e responsiva.
 - **Node.js** - Ambiente de execução.
 - **axios** - Para requisições ao backend.
+- [Backend do projeto](https://github.com/T-Terra/Backend-estoque)
 
 ## Funcionalidades
 
