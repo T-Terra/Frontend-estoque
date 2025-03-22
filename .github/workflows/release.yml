@@ -35,6 +35,8 @@ jobs:
         run: yarn install
       
       - name: Gerar changelog da release
+        env:
+          TOKEN_REPO: ${{ secrets.TOKEN_REPO }}
         run: |
           yarn release
           git push --follow-tags origin HEAD
