@@ -33,6 +33,9 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+
+      - name: Configurar GitHub CLI
+        run: gh auth login --with-token <<< "${{ secrets.TOKEN_REPO }}"
       
       - name: Gerar changelog da release
         env:
@@ -40,9 +43,6 @@ jobs:
         run: |
           yarn release
           git push --follow-tags origin HEAD
-      
-      - name: Configurar GitHub CLI
-        run: gh auth login --with-token <<< "${{ secrets.TOKEN_REPO }}"
       
       - name: Criar Release no GitHub
         env:
