@@ -1,4 +1,4 @@
-nama: CI version front
+name: CI version front
 
 on:
   workflow_dispatch:
