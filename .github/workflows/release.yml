@@ -1,0 +1,52 @@
+nama: CI version front
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*.*.*"  # Apenas executa para tags versionadas, ex: v1.0.0
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@4
+        with:
+          fetch-depth: 0
+    
+      - name: Configurar usuário do GitHub
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.TOKEN_REPO }}@github.com/T-Terra/Backend-estoque.git
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+          cache-dependency-path: ./package-lock.json
+
+      - name: Install dependencies
+        run: yarn install
+      
+      - name: Gerar changelog da release
+        run: |
+          yarn release
+          git push --follow-tags origin master
+      
+      - name: Configurar GitHub CLI
+        run: gh auth login --with-token <<< "${{ secrets.TOKEN_REPO }}"
+      
+      - name: Criar Release no GitHub
+        env:
+          TOKEN_REPO: ${{ secrets.TOKEN_REPO }}
+        run: |
+          VERSION=$(git describe --tags --abbrev=0)
+          gh release create "$VERSION" \
+            --title "Release $VERSION" \
+            --notes-file CHANGELOG.md
