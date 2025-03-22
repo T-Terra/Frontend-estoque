@@ -37,7 +37,7 @@ jobs:
       - name: Gerar changelog da release
         run: |
           yarn release
-          git push --follow-tags origin master
+          git push --follow-tags origin HEAD
       
       - name: Configurar GitHub CLI
         run: gh auth login --with-token <<< "${{ secrets.TOKEN_REPO }}"
